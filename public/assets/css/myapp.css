@@ -1,0 +1,10 @@
+#mydatatbl TD {font-size:13px; padding-bottom: 3px !important; padding-top: 3px !important;}
+
+TH {font-size:13px}
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
