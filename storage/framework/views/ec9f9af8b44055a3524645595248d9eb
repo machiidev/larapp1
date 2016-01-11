@@ -1,0 +1,370 @@
+<?php $__env->startSection('pageheader'); ?>
+Gruppen administrieren
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('pageheadersmall'); ?>
+Admin Menu für Gruppen
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('menu'); ?>
+Benutzerverwaltung
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<div class='row'>
+
+	<div class='col-md-9'>
+		<!-- Box -->
+		<div class="box box-primary hidden">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					Second Box
+				</h3>
+				<div class="box-tools pull-right">
+					<button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+						<i class="fa fa-minus">
+						</i>
+					</button>
+					<button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+						<i class="fa fa-times">
+						</i>
+					</button>
+				</div>
+			</div>
+			<div class="box-body">
+				A separate section to add any kind of widget. Feel free
+				to explore all of AdminLTE widgets by visiting the demo page
+				on
+				<a href="https://almsaeedstudio.com">
+					Almsaeed Studio
+				</a>.
+				<br>
+				</br>
+				<?php foreach($groups as $group): ?>
+				<?php echo e($group['name']); ?><?php echo e($group['remark']); ?><?php echo e($group['email']); ?>
+
+				<br>
+				</br>
+				<?php endforeach; ?>
+				<?php echo e($groups); ?>
+
+
+			</div><!-- /.box-body -->
+		</div><!-- /.box -->
+
+		<div class="box box-primary">
+
+			<div class="box-header">
+				<h3 class="box-title">
+					Data Table With Full Features
+				</h3>
+			</div><!-- /.box-header -->
+			<div class="box-body">
+				<table id="example" class="table table-bordered table-striped hover">
+					<thead>
+						<tr>
+							<th>
+								ID
+							</th>
+							<th>
+								Gruppe
+							</th>
+							<th>
+								Anmerkung
+							</th>
+							<th>
+								Email
+							</th>
+
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+
+				</table>
+			</div><!-- /.box-body -->
+		</div><!-- /.box -->
+
+
+	</div><!-- /.col -->
+
+	<div class='col-md-3'>
+		<!-- Box -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					Quick Edit
+				</h3>
+			</div><!-- /.box-header -->
+			<!-- form start -->
+			<form
+				action"#" method="post" id="frmGroup" role="form" >
+				<div class="box-body controls">
+					<div class="form-group">
+						<label>
+							ID
+						</label>
+						<input type="text" class="form-control" name="fid" id="fid" placeholder="Neu" readonly>
+					</div>
+					<div class="form-group has-primary">
+						<label>
+							Name
+						</label>
+						<input required type="text" class="form-control" name="fname" id="fname" placeholder="Gruppename">
+					</div>
+					<div class="form-group">
+						<label>
+							Anmerkung
+						</label>
+						<input type="text"  minlength="10" class="form-control" name="fremark" id="fremark" placeholder="Beschreibung">
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">
+							Email address
+						</label>
+						<div class="controls">
+							<input required type="email" class="form-control" name="femail" id="femail" placeholder="Gruppen Email"
+							data-validation-matches-match="email" data-validation-matches-message="Must match email address entered above" >
+							<p class="help-block">
+								mail eingeben
+							</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>
+							Manager
+						</label>
+						<select id="fmanager" name="fmanager" class="form-control select2" placeholder="Manager auswählen" style="width: 100%;">
+							
+
+						</select>
+					</div><!-- /.form-group -->
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" id="faktiv">Aktiv
+						</label>
+					</div>
+				</div><!-- /.box-body -->
+
+				<div class="box-footer">
+
+
+					<button type="submit" id="fbtsave" class="btn btn-normal">
+						Anlegen
+					</button>&nbsp;
+					<button type="button" id="fbtdelete" class="btn btn-danger">
+						Delete
+					</button>
+				</div>
+			</form>
+			<div id="danger" class="alert alert-danger alert-dismissable collapse">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+					&times;
+				</button>
+				<h4>
+					<i class="icon fa fa-ban">
+					</i>Alert!
+				</h4>
+				Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+			</div>
+			<div id="success" class="alert alert-success alert-dismissable collapse">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+					&times;
+				</button>
+				<h4>
+					<i class="icon fa fa-check">
+					</i>Erfolgreich!
+				</h4>
+				Success alert preview. This alert is dismissable.
+			</div>
+		</div><!-- /.box -->
+
+
+
+
+	</div><!-- /.col -->
+
+
+
+</div><!-- /.row -->
+
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('skripte'); ?>
+<script src="<?php echo e(asset('/assets/plugins/select2/select2.full.min.js')); ?>">
+</script>
+<!-- DataTables -->
+<script src="<?php echo e(asset('/assets/plugins/datatables/jquery.dataTables.js')); ?>">
+</script>
+<script src="<?php echo e(asset('/assets/plugins/datatables/dataTables.bootstrap.js')); ?>">
+</script>
+<script type="text/javascript" language="javascript" src="<?php echo e(asset('/assets/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.js')); ?>">
+</script>
+<!-- SlimScroll -->
+<script src="<?php echo e(asset('/assets/plugins/slimScroll/jquery.slimscroll.min.js')); ?>">
+</script>
+<!-- FastClick -->
+<script src="<?php echo e(asset('/assets/plugins/fastclick/fastclick.min.js')); ?>">
+</script>
+
+
+<script>
+	$(function ()
+		{
+			//Initialize Select2 Elements
+			$(".select2").select2();
+		})
+
+
+	function loadselectdata(sid,url)
+	{
+
+
+		var $element = $('#fmanager').select2(); // the select element you are working with
+
+		var $request = $.ajax(
+			{
+				url: '<?php echo e(asset('/useradmin/groups/axmanager')); ?>', // wherever your data is actually coming from
+				dataType: 'json'
+			});
+
+		$request.then(function (data)
+			{
+				// This assumes that the data comes back as an array of data objects
+				// The idea is that you are using the same callback as the old `initSelection`
+
+				var jsonobj= data;
+				for (var d in jsonobj)
+				{
+					var itemr = jsonobj[d];
+
+					// Create the DOM option that is pre-selected by default
+					// , id, defualtselected, nowselectd
+					var option = new Option(itemr.text, itemr.id, false, false);
+
+					// Append it to the select
+					$element.append(option);
+				}
+
+				// Update the selected options that are displayed
+				$element.trigger('change');
+			});
+			
+	}; // function
+	
+	
+	
+</script>
+
+<script>
+	$(document).ready(function()
+		{
+
+
+
+			var table = $('#example').DataTable(
+				{
+
+					ajax:
+					{
+						url: '<?php echo e(asset('/useradmin/groups/ajax')); ?>',
+						dataSrc: 'groups'
+					},
+
+					"columns": [
+
+						{
+							"data": "id"
+						},
+						{
+							"data": "name"
+						},
+						{
+							"data": "remark"
+						},
+						{
+							"data": "email"
+						}
+					]
+
+				});
+
+
+
+			$('#example tbody').on( 'click', 'tr', function ()
+				{
+					if ( $(this).hasClass('active') )
+					{
+						$(this).removeClass('active');
+
+						$('#fid').val( "Neu");
+						$('#fname').val("");
+						$('#fremark').val( "");
+						$('#femail').val( "");
+						$('#fbtsave').html('Anlegen');
+					}
+					else
+					{
+						table.$('tr.active').removeClass('active');
+						$(this).addClass('active');
+
+						$('#fid').val( table.cell('.active', 0).data());
+						$('#fname').val( table.cell('.active', 1).data());
+						$('#fremark').val( table.cell('.active', 2).data());
+						$('#femail').val( table.cell('.active', 3).data());
+						$('#fbtsave').html( 'Speichern');
+					}
+				});
+
+			$.ajaxSetup(
+				{
+					headers:
+					{
+						'X-CSRF-Token' : $('meta[name=_token]').attr('content')
+					}
+				});
+			//___________________
+
+
+
+
+			$( "#frmGroup" ).submit(function( event )
+				{
+					alert("submit");
+
+					$.ajax(
+						{
+							url: '/useradmin/groups/axsave',
+							type: 'post',
+							cache: false,
+							dataType: 'json',
+							data: $('form#frmGroup').serialize(),
+							beforeSend: function()
+							{
+								//$("#validation-errors").hide().empty();
+								//alert($('#frmGroup').serialize())
+							},
+							success: function(data, textStatus, jqXHR)
+							{
+								console.log("Success!");
+								$("#"+data.status).show();
+								alert(data.status+" "+data.msg);
+							},
+							error: function( jqXHR,  textStatus,  errorThrown)
+							{
+								alert(textStatus);
+							}
+						});
+					event.preventDefault();
+				});
+
+			$(".select2").select2();
+			loadselectdata();
+			$("#fmanager").val(null).trigger("change");
+			
+		});
+</script>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
